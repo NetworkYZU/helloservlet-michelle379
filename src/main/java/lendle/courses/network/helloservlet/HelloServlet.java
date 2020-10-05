@@ -17,19 +17,21 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lendle
  */
-@WebServlet(name = "HelloServlet", urlPatterns = {"/"})
+@WebServlet(name = "HelloServlet", urlPatterns = {"/hello"})//("")裡面內容==輸入的網址//("/*")代表多個路徑全輸入皆可
 public class HelloServlet extends HttpServlet {
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=utf-8");
         try(PrintWriter out=resp.getWriter()){
             //輸出
-            // <html>
-            // <body>
-            //  <h1>Hello!</h1>
-            // </body>
-            // </html>
+            out.println("<html>");
+            out.println("<body>");
+            out.println(req.getRequestURL());//輸出localhost和網址
+            out.println("</body>"); 
+            out.println("/html>"); 
+            
         }
     }
     
